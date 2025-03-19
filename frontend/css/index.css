@@ -16317,12 +16317,12 @@ fieldset:disabled .btn {
 
 body,
 html {
-    background: #98ecf4;
+    /*background: #98ecf4;*/
     color: #fff
 }
 
 .navbar-custom {
-    background: #d03434;
+    background: black;
     margin-bottom: 20px
 }
 
@@ -16455,7 +16455,7 @@ html {
 
 .articleContainer .articleListing .col.card-group .articleCard:hover {
     transition: all .5s ease;
-    background: #4f6682
+    background: red
 }
 
 .articleContainer .articleListing .col.card-group .articleCard:active {
@@ -16511,11 +16511,11 @@ html {
 }
 
 .card {
-    background: #e06666
+    background: black
 }
 
 .alert-fine {
-    background: #94fff4;
+    background: red;
     color: #fff;
     transition: all .5s ease
 }

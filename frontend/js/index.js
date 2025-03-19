@@ -233,7 +233,7 @@ function setItemAmount(item_id, amount) {
 function update_summary() {
     // Clean Summary
     document.getElementById("summary_whole_box").innerHTML =
-        `<div id="summary_whole_box" class="card sticky-top-resume" style="background-color: #d03434">
+        `<div id="summary_whole_box" class="card sticky-top-resume" style="background-color: black">
             <div class="card-header">
                 <h1 class="text-center">Resumo da Venda</h1>
             </div>
@@ -255,7 +255,7 @@ function update_summary() {
 
             list.innerHTML += `<div role="alert" class="col-12 alert alert-dark alert-fine d-flex p-1 px-3">
                     <div class="col-auto">
-                        <div class="row" style="width: 20rem"><small style="word-wrap: break-word; color: black">${item.nome}</small></div>
+                        <div class="row" style="width: 20rem"><small style="word-wrap: break-word; color: white">${item.nome}</small></div>
                         <div class="row text-article">
                             <small>
                                 <div style="color: gray">
@@ -306,18 +306,23 @@ function update_summary() {
                     </label>
                     
                     <label>
-                        <input type="radio" id="twentydiscount" name="discounttype" value=20>
-                        20% desconto
+                        <input type="radio" id="partner" name="discounttype" value=10>
+                        Moore Club Partner (10%)
                     </label>
                     
                     <label>
-                        <input type="radio" id="thrityfivediscount" name="discounttype" value=35>
-                        35% desconto
+                        <input type="radio" id="aurora" name="discounttype" value=15>
+                        Aurora (15%)
                     </label>
                     
                     <label>
-                        <input type="radio" id="fiftydiscount" name="discounttype" value=50>
-                        50% desconto
+                        <input type="radio" id="celestial" name="discounttype" value=20>
+                        Celestial (20%)
+                    </label>
+                    
+                    <label>
+                        <input type="radio" id="divine" name="discounttype" value=25>
+                        Divine (25%)
                     </label>
                     
                     <h5>Preço com Desconto: ${format_money(price_discount)} €</h5>
@@ -339,26 +344,31 @@ function update_summary() {
         // Check the discounts radio buttons
         if (discount === 0) {
             document.getElementById("nodiscount").checked = true;
+        } else if (discount === 10) {
+            document.getElementById("partner").checked = true;
+        } else if (discount === 15) {
+            document.getElementById("aurora").checked = true;
         } else if (discount === 20) {
-            document.getElementById("twentydiscount").checked = true;
-        } else if (discount === 35) {
-            document.getElementById("thrityfivediscount").checked = true;
-        } else if (discount === 50) {
-            document.getElementById("fiftydiscount").checked = true;
+            document.getElementById("celestial").checked = true;
+        } else if (discount === 25) {
+            document.getElementById("divine").checked = true;
         }
 
         // Add event listeners to radio buttons
         document.getElementById("nodiscount").addEventListener("change", () => {
             updateDiscount(0);
         });
-        document.getElementById("twentydiscount").addEventListener("change", () => {
+        document.getElementById("partner").addEventListener("change", () => {
+            updateDiscount(10);
+        });
+        document.getElementById("aurora").addEventListener("change", () => {
+            updateDiscount(15);
+        });
+        document.getElementById("celestial").addEventListener("change", () => {
             updateDiscount(20);
         });
-        document.getElementById("thrityfivediscount").addEventListener("change", () => {
-            updateDiscount(35);
-        });
-        document.getElementById("fiftydiscount").addEventListener("change", () => {
-            updateDiscount(50);
+        document.getElementById("divine").addEventListener("change", () => {
+            updateDiscount(25);
         });
     }
 }
