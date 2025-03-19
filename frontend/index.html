@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Pop's Diner (PortugáliaRP)</title>
+        <link href="css/index.css" rel="stylesheet"/>
+        <link rel="icon" type="image/x-icon" href="images/favico.ico">
+        <script src="js/index.js"></script>
+    </head>
+
+    <body onload="load_items_from_db()">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-custom px-3 sticky-top-nav">
+                <a class="navbar-brand router-link-active">Calculadora de Preços Pop's Diner Portugália</a>
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+                <div id="navbarSupportedContent" class="navbar-collapse">
+                    <form class="form-inline my-2 my-lg-0 d-flex justify-content-end headerDetailsContainer"><small class="headerDetails align-middle"><a href="https://github.com/xlysander12/calculadora-popsdiner-portugalia" target="_blank">lysander12<br>04/01/2025</a></small></form>
+                </div>
+            </nav>
+            <div class="container-fluid mainContainer">
+                <div class="row">
+    <!--                Parte da esquerda-->
+                    <div class="col-md-8" style="user-select: none; -webkit-user-select: none; -ms-user-select: none">
+    <!--                    Barra de pesquisa-->
+                        <div class="card" style="background-color: #d03434">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 mainHeader d-flex">
+                                        <h1 class="d-flex">Artigos</h1>
+                                        <div class="form-group articleSearchGroup">
+                                            <input type="text" id="articleSearch" placeholder="Pesquisar Nome" class="form-control" oninput="search_items(document.getElementById('articleSearch').value)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    <!--                    Crimes-->
+                        <div class="row">
+                            <div class="container-fluid articleContainer">
+                                <!--                            Texto categoria Menus Carne & Peixe-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card articleCategory" style="background-color: #d03434">
+                                            <div class="card-body">
+                                                <h3 style="display: inline-flex">Menus - Carne & Peixe</h3>
+                                                <div class="d-inline-flex" style="position: absolute; right: 2%">
+                                                    <a style="color: #ffffff; font-size: 30px" class="align-middle"><i class="fa fa-chevron-down alert-collapse" onclick="collapse_category('menus-carne-peixe', this);"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--                            Artigos Carne e Peixei-->
+                                <div id="menus-carne-peixe" class="row articleListing">
+
+                                </div>
+
+
+                                <!--                            Texto categoria Menus Carne -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card articleCategory" style="background-color: #d03434">
+                                            <div class="card-body">
+                                                <h3 style="display: inline-flex">Menus - Carne</h3>
+                                                <div class="d-inline-flex" style="position: absolute; right: 2%">
+                                                    <a style="color: #ffffff; font-size: 30px" class="align-middle"><i class="fa fa-chevron-down alert-collapse" onclick="collapse_category('menus-carne', this);"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--                            Artigos Carne-->
+                                <div id="menus-carne" class="row articleListing">
+
+                                </div>
+
+                                <!--                            Texto categoria Menus Peixe-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card articleCategory" style="background-color: #d03434">
+                                            <div class="card-body">
+                                                <h3 style="display: inline-flex">Menus - Peixe</h3>
+                                                <div class="d-inline-flex" style="position: absolute; right: 2%">
+                                                    <a style="color: #ffffff; font-size: 30px" class="align-middle"><i class="fa fa-chevron-down alert-collapse" onclick="collapse_category('menus-peixe', this);"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--                                Artigos Peixe-->
+                                <div id="menus-peixe" class="row articleListing">
+
+                                </div>
+
+                                <!--                            Texto categoria Menus Pastelaria-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card articleCategory" style="background-color: #d03434">
+                                            <div class="card-body">
+                                                <h3 style="display: inline-flex">Menus - Pastelaria</h3>
+                                                <div class="d-inline-flex" style="position: absolute; right: 2%">
+                                                    <a style="color: #ffffff; font-size: 30px" class="align-middle"><i class="fa fa-chevron-down alert-collapse" onclick="collapse_category('menus-peixe', this);"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--                                Artigos Pastelaria-->
+                                <div id="menus-pastelaria" class="row articleListing">
+
+                                </div>
+
+    <!--                            Texto da categoria Comidas -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card articleCategory" style="background-color: #d03434">
+                                            <div class="card-body">
+                                                <h3 style="display: inline-flex">Comidas</h3>
+                                                <div class="d-inline-flex" style="position: absolute; right: 2%">
+                                                    <a style="color: #ffffff; font-size: 30px" class="align-middle"><i class="fa fa-chevron-down alert-collapse" onclick="collapse_category('comidas', this);"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+    <!--                            Artigos Comida-->
+                                <div id="comidas" class="row articleListing">
+
+                                </div>
+
+                                <!--                            Texto da categoria Bebidas -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card articleCategory" style="background-color: #d03434">
+                                            <div class="card-body">
+                                                <h3 style="display: inline-flex">Bebidas</h3>
+                                                <div class="d-inline-flex" style="position: absolute; right: 2%">
+                                                    <a style="color: #ffffff; font-size: 30px" class="align-middle"><i class="fa fa-chevron-down alert-collapse" onclick="collapse_category('bebidas', this);"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--                            Artigos Bebidas-->
+                                <div id="bebidas" class="row articleListing">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+    <!--                Parte da direita-->
+                    <div class="col-md-4">
+                        <div id="summary_whole_box" class="card sticky-top-resume" style="background-color: #d03434">
+                            <div class="card-header">
+                                <h1 class="text-center">Resumo da Venda</h1>
+                            </div>
+
+                            <div id="article_list" class="card-body articleList">
+                                <p class="text-center"><small>Ainda não foram adicionados artigos</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
