@@ -19,7 +19,7 @@ const mysqlPool = mysql.createPool({
 });
 
 // Util Vars
-const categorias = ["bebidas", "comidas", "menus_carne", "menus_peixe", "menus_carne_peixe", "menus_pastelaria"];
+const categorias = ["bebidas", "comidas", "entradas"];
 
 // Route to fetch categories
 app.get("/categorias/:category", async (req, res) => {
@@ -77,7 +77,7 @@ app.post("/venda", async (req, res) => {
 // Route to export sales to txt file
 app.post("/exportar", async (req, res) => {
     // Make sure the provided password is the correct one
-    if (req.body === undefined || !req.body.hasOwnProperty("password") || req.body.password !== process.env.POPSDINER_PASSWORD) {
+    if (req.body === undefined || !req.body.hasOwnProperty("password") || req.body.password !== process.env.PASSWORD) {
         res.status(401).json({ error: "Unauthorized" });
         return;
     }
@@ -107,7 +107,8 @@ app.post("/exportar", async (req, res) => {
                 id: row.id,
                 vendedor: row.vendedor,
                 items: JSON.parse(row.items),
-                valor: row.valor
+                valor: row.valor,
+                timestamp: row.timestamp
             };
         });
 
