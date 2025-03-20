@@ -139,7 +139,7 @@ app.post("/exportar", async (req, res) => {
 
             let bruto = items.reduce((sum, item) => sum + item.preco, 0);
 
-            content += `==== Venda #${sale.id} ====\n`;
+            content += `==== Venda #${sale.id} (${sale.timestamp.getDate()}/${sale.timestamp.getMonth()}/${sale.timestamp.getFullYear()} @ ${sale.timestamp.getHours()}:${sale.timestamp.getMinutes()}) ====\n`;
             content += `Funcionário: ${sale.vendedor}\n`;
             content += `Preço Bruto: ${bruto} €\n`;
             content += `Desconto Aplicado: ${(1 - ((sale.valor - nonDiscountableItemsSum) / (bruto - nonDiscountableItemsSum))) * 100}%\n`;
