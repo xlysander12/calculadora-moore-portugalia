@@ -294,13 +294,8 @@ function update_summary() {
                     </label>
                     
                     <label>
-                        <input type="radio" id="partner" name="discounttype" value=10>
-                        Moore Club Partner (10%)
-                    </label>
-                    
-                    <label>
-                        <input type="radio" id="aurora" name="discounttype" value=15>
-                        Aurora (15%)
+                        <input type="radio" id="partner" name="discounttype" value=15>
+                        Moore Club Partner / Aurora (15%)
                     </label>
                     
                     <label>
@@ -332,10 +327,8 @@ function update_summary() {
         // Check the discounts radio buttons
         if (discount === 0) {
             document.getElementById("nodiscount").checked = true;
-        } else if (discount === 10) {
-            document.getElementById("partner").checked = true;
         } else if (discount === 15) {
-            document.getElementById("aurora").checked = true;
+            document.getElementById("partner").checked = true;
         } else if (discount === 20) {
             document.getElementById("celestial").checked = true;
         } else if (discount === 25) {
@@ -347,9 +340,6 @@ function update_summary() {
             updateDiscount(0);
         });
         document.getElementById("partner").addEventListener("change", () => {
-            updateDiscount(10);
-        });
-        document.getElementById("aurora").addEventListener("change", () => {
             updateDiscount(15);
         });
         document.getElementById("celestial").addEventListener("change", () => {
