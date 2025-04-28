@@ -294,6 +294,16 @@ function update_summary() {
                     </label>
                     
                     <label>
+                        <input type="radio" id="afiliatedEnterprise5" name="discounttype" value=5>
+                        Afiliado de outras Empresas (5%)
+                    </label>
+                    
+                    <label>
+                        <input type="radio" id="afiliatedEnterprise10" name="discounttype" value=10>
+                        Afiliado de outras Empresas (10%)
+                    </label>
+                    
+                    <label>
                         <input type="radio" id="partner" name="discounttype" value=15>
                         Moore Club Partner / Aurora (15%)
                     </label>
@@ -327,6 +337,10 @@ function update_summary() {
         // Check the discounts radio buttons
         if (discount === 0) {
             document.getElementById("nodiscount").checked = true;
+        } else if (discount === 5) {
+            document.getElementById("afiliatedEnterprise5").checked = true;
+        } else if (discount === 10) {
+            document.getElementById("afiliatedEnterprise10").checked = true;
         } else if (discount === 15) {
             document.getElementById("partner").checked = true;
         } else if (discount === 20) {
@@ -338,6 +352,12 @@ function update_summary() {
         // Add event listeners to radio buttons
         document.getElementById("nodiscount").addEventListener("change", () => {
             updateDiscount(0);
+        });
+        document.getElementById("afiliatedEnterprise5").addEventListener("change", () => {
+            updateDiscount(5);
+        });
+        document.getElementById("afiliatedEnterprise10").addEventListener("change", () => {
+            updateDiscount(10);
         });
         document.getElementById("partner").addEventListener("change", () => {
             updateDiscount(15);
